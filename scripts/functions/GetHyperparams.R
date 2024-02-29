@@ -22,10 +22,10 @@ BetaParameters <- function(mu, sigma) {
   return(c(a, b))
 }
 
-# aux function used to calculate Weibull params in KaminskyJointPrior()
+# aux function used to calculate Weibull params in KaminskiyJointPrior()
 g <- function(x) log(-log(1 - x))
 
-KaminskyJointPrior <- function(t1, t2, t1_mean, t1_sd, t2_mean, t2_sd) {
+KaminskiyJointPrior <- function(t1, t2, t1_mean, t1_sd, t2_mean, t2_sd) {
   # calculate the parameters of the true beta priors
   beta_params_t1 <- BetaParameters(t1_mean, t1_sd)
   beta_params_t2 <- BetaParameters(t2_mean, t2_sd)
@@ -121,8 +121,8 @@ GetHyperparams <- function(
   )
   joint_hyperparams$cdf_t1_mean_misspec <- misspecified_means[1]
   joint_hyperparams$cdf_t2_mean_misspec <- misspecified_means[2]
-  # simulate from Kaminsky joint prior
-  joint_prior_draws <- KaminskyJointPrior(
+  # simulate from Kaminskiy joint prior
+  joint_prior_draws <- KaminskiyJointPrior(
     t1 = t1,
     t2 = t2,
     t1_mean = joint_hyperparams$cdf_t1_mean_misspec,

@@ -55,7 +55,7 @@ $$
 
 ### Informative joint prior
 
-To specify an informative joint prior we use the method of Kaminsky. To specify the prior we start by eliciting information on the weibull CDF. This is done by estimating the value of the CDF at two exposure times and specifying some uncertainty in the estimate in the form of the means, $E(\hat{F}(t_1))$ and $E(\hat{F}(t_2))$, and standard deviations, $sd(\hat{F}(t_1))$ and $sd(\hat{F}(t_2))$, of two Beta distributions. We then calculate the parameters of the two beta distributions
+To specify an informative joint prior we use the method of Kaminskiy. To specify the prior we start by eliciting information on the weibull CDF. This is done by estimating the value of the CDF at two exposure times and specifying some uncertainty in the estimate in the form of the means, $E(\hat{F}(t_1))$ and $E(\hat{F}(t_2))$, and standard deviations, $sd(\hat{F}(t_1))$ and $sd(\hat{F}(t_2))$, of two Beta distributions. We then calculate the parameters of the two beta distributions
 
 $$
 a_{t_i} = \frac{E\left(\hat{F}(t_i)\right)^2\left[1 - E\left(\hat{F}(t_i)\right)\right]}{sd\left(\hat{F}(t_i)\right)} \\
@@ -400,7 +400,7 @@ Due to the randomness in the data simulation and observation process, there are 
 | $t_{start}$ | The start of observations time. |  |
 | $t_{end} - t_{start}$ | The length of the observation period. |  |
 
-To simplify the number of factors that relate to the informative prior I simplify the specification of the prior using uncertainty in the cdf comparable to repeatedly observing a lifetime dataset of x units. For example, I'll simulate 10000 lifetime datasets of x observations and calculate the mean and standard deviation of the inferred CDFs (using MLE) at time $t_1$ and $t_2$. Ill then specify some misspecification through the parameter $\phi$. Phi is a quantile of the beta distributions in the Kaminsky joint prior, and so can have any value between zero and 1. The misspecification of $E(\hat{F}(t_i))$ is calculated as
+To simplify the number of factors that relate to the informative prior I simplify the specification of the prior using uncertainty in the cdf comparable to repeatedly observing a lifetime dataset of x units. For example, I'll simulate 10000 lifetime datasets of x observations and calculate the mean and standard deviation of the inferred CDFs (using MLE) at time $t_1$ and $t_2$. Ill then specify some misspecification through the parameter $\phi$. Phi is a quantile of the beta distributions in the Kaminskiy joint prior, and so can have any value between zero and 1. The misspecification of $E(\hat{F}(t_i))$ is calculated as
 
 $$
 E_{misspecified}\left(\hat{F}(t_i)\right) = E\left(\hat{F}(t_i)\right) + \left( F_{Beta}^{-1}(\phi| a_{t_i}, b_{t_i}) - F_{Beta}^{-1}(0.5| a_{t_i}, b_{t_i}) \right)
